@@ -20,7 +20,7 @@ var file = new static.Server(directory);
 
 /* construct an http that gets files from the file server */
 var app = http.createServer( 
-	fuction(request,response){
+	function(request,response){
 		request.addListener('end',
 			function(){
 				file.serve(request,response);
