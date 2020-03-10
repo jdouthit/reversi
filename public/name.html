@@ -1,31 +1,44 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Enter your user name for the game </title>
     <style>
         body {
             background-image: url("assets/images/green.jpg");
     </style>
 
+    <script>
+      function submitForm(){
+        var username = $( '#username').val();
+        window.location.href = 'lobby.html?username=' +username;
+      }
+    </script>
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  </head>
+</head>
   <body>
     <div class ="container-fluid text-center">
-      <div class= "row">
+      <div class= "row" id = 'header-row'>
         <div class="col">
-          <h1> enter your username here</h1>
+          <h1> Chose Your Username!</h1>
         </div>
       </div>
-      <div class= "row">
-
-        <div class="col">
-          <a href="index.html" class="btn btn-lg butn-info">home</a>
+      <div class= 'row'>
+        <div class='col'>
+          <form onsubmit='submitForm(); return false' class= 'form-inline'>
+            <div class  = 'form-group'>
+              <label for='username'  class ='col-form-label sr-only'>  Enter your username</label>
+              <input class='form-control' type='text' value='' id= 'username' placeholder='Username Here'/>
+            </div>
+            <button type='submit' class = 'btn btn-default btn-primary'> Done </button>
+          </form>
         </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
