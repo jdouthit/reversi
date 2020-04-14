@@ -1,0 +1,25 @@
+body {
+    background-image: url('assets/images/green.jpg');
+}
+table#game_board{
+    margin:auto;
+    border-style: solid;
+    border-width: 10px;
+    border-color: darkslategrey;
+}
+
+table#game_board td{
+    padding:1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgrey;
+}
+
+#messages p{
+    margin: 0px; 
+}
+
+td.hovered_over:hover {
+    background:url('../images/hover.gif');
+    background-size: 100% 100%;
+}
