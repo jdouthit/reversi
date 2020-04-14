@@ -321,12 +321,14 @@ socket.on('game_update',function(payload){
 	var whitesum = 0;
 	var row,column;
 	for(row = 0; row < 8; row++){
+		for(column  = 0; column < 8; column++){
 			if(board[row][column] == 'b'){
 				blacksum++;
 			}
 			if(board[row][column] =='w'){
 				whitesum++;
             } 
+        }
 
 		for(column = 0; column < 8; column++){
 			if(old_board[row][column] != board[row][column]){
