@@ -327,8 +327,8 @@ socket.on('game_update',function(payload){
 			}
 			if(board[row][column] =='w'){
 				whitesum++;
-            } 
-        }
+            }
+        } 
 
 		for(column = 0; column < 8; column++){
 			if(old_board[row][column] != board[row][column]){
@@ -362,9 +362,13 @@ socket.on('game_update',function(payload){
 				else {
                     $('#'+row+'_'+column).html('<img src="assets/images/error.gif" alt="error/>');
                 }
-                /* set up interactivity */
+        }
+
+			/* set up interactivity */
 			$('#'+row+'_'+column).off('click');
-			if(board[row][column] == ' '){
+			$('#'+row+'_'+column).removeClass('hovered_over');
+			if(payload.game.whose_turn === my_color){
+				if(payload.game.legal_moves[row][column] === my_color.substr(0,1)){
 					$('#'+row+'_'+column).addClass('hovered_over');
 					$('#'+row+'_'+column).click(function(r,c){
 						return function(){
@@ -375,19 +379,17 @@ socket.on('game_update',function(payload){
 							console.log('*** client Log message: \'play_token\' payload: '+JSON.stringify(payload));
 							socket.emit('play_token',payload);
 						};
-                    }(row,column));
-                }
-                else{
-                    $('#'+row+'_'+column).removeClass('hovered_over');
-                }
-             }
-       }    
+					}(row,column));
+				}
+				
+			}
+		}
     }
 
-    $('#blacksum').html(blacksum);
-    $('#whitesum').html(whitesum); 
+	$('#blacksum').html(blacksum);
+	$('#whitesum').html(whitesum); 
 
-    old_board = board;
+	old_board = board;
 
 });
 
