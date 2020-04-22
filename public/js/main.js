@@ -300,11 +300,11 @@ socket.on('game_update',function(payload){
 		return;
     }
     /*update my color*/
-	if(socket.id == payload.game.player_orange.socket){
-        my_color = 'orange';
+	if(socket.id == payload.game.player_white.socket){
+        my_color = 'white';
 	}
-	else if(socket.id == payload.game.player_purple.socket){
-		my_color = 'purple';
+	else if(socket.id == payload.game.player_black.socket){
+		my_color = 'black';
 	}
 	else{
 		/* something weird is going on */
@@ -338,20 +338,19 @@ socket.on('game_update',function(payload){
 
     /* animate changes to the board */
 
-    var purplesum = 0;
-	var orangesum = 0;
+    var blacksum = 0;
+	var whitesum = 0;
 	var row,column;
 	for(row = 0; row < 8; row++){
 		for(column  = 0; column < 8; column++){
 			if(board[row][column] == 'b'){
-				purplesum++;
+				blacksum++;
 			}
 			if(board[row][column] =='w'){
-				orangesum++;
+				whitesum++;
             }
-        } 
 
-		for(column = 0; column < 8; column++){
+
 			if(old_board[row][column] != board[row][column]){
 				if(old_board[row][column] == '?' && board[row][column] == ' '){
 					$('#'+row+'_'+column).html('<img src="assets/images/empty.gif" alt="empty square"/>');
@@ -404,11 +403,11 @@ socket.on('game_update',function(payload){
 				}
 				
 			}
-		}
+        }
     }
 
-	$('#purplesum').html(purplesum);
-	$('#orangesum').html(orangesum); 
+	$('#blacksum').html(blacksum);
+	$('#whitesum').html(whitesum); 
 
 	old_board = board;
 

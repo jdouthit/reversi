@@ -12,6 +12,7 @@ table#game_board{
     border-style: solid;
     border-width: 10px;
     border-color:  rgb(211, 200, 219);
+    border-collapse: seperate;
 }
 
 table#game_board td{
