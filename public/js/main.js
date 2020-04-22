@@ -343,10 +343,10 @@ socket.on('game_update',function(payload){
 	var row,column;
 	for(row = 0; row < 8; row++){
 		for(column  = 0; column < 8; column++){
-			if(board[row][column] == 'b'){
+			if(board[row][column] == 'p'){
 				purplesum++;
 			}
-			if(board[row][column] =='w'){
+			if(board[row][column] =='o'){
 				orangesum++;
             }
 
@@ -355,28 +355,28 @@ socket.on('game_update',function(payload){
 				if(old_board[row][column] == '?' && board[row][column] == ' '){
 					$('#'+row+'_'+column).html('<img src="assets/images/empty.gif" alt="empty square"/>');
 				}
-				else if(old_board[row][column] == '?' && board[row][column] == 'w'){
+				else if(old_board[row][column] == '?' && board[row][column] == 'o'){
 					$('#'+row+'_'+column).html('<img src="assets/images/empty_to_orange.gif" alt="orange sqaure"/>');
 				}
-				else if(old_board[row][column] == '?' && board[row][column] == 'b'){
+				else if(old_board[row][column] == '?' && board[row][column] == 'p'){
 					$('#'+row+'_'+column).html('<img src="assets/images/empty_to_purple.gif" alt="purple sqaure"/>');
 				}	
-				else if(old_board[row][column] == ' ' && board[row][column] == 'w'){
+				else if(old_board[row][column] == ' ' && board[row][column] == 'o'){
 					$('#'+row+'_'+column).html('<img src="assets/images/empty_to_orange.gif" alt="orange sqaure"/>');
 				}
-				else if(old_board[row][column] == ' ' && board[row][column] == 'b'){
+				else if(old_board[row][column] == ' ' && board[row][column] == 'p'){
 					$('#'+row+'_'+column).html('<img src="assets/images/empty_to_purple.gif" alt="purple sqaure"/>');
 				}	
-				else if(old_board[row][column] == 'w' && board[row][column] == ' '){
+				else if(old_board[row][column] == 'o' && board[row][column] == ' '){
 					$('#'+row+'_'+column).html('<img src="assets/images/orange_to_empty.gif" alt="empty sqaure"/>');
 				}
-				else if(old_board[row][column] == 'b' && board[row][column] == ' '){
+				else if(old_board[row][column] == 'p' && board[row][column] == ' '){
 					$('#'+row+'_'+column).html('<img src="assets/images/purple_to_empty.gif" alt="empty sqaure"/>');
 				}	
-				else if(old_board[row][column] == 'w' && board[row][column] == 'b'){
+				else if(old_board[row][column] == 'o' && board[row][column] == 'p'){
 					$('#'+row+'_'+column).html('<img src="assets/images/orange_to_purple.gif" alt="purple sqaure"/>');
 				}
-				else if(old_board[row][column] == 'b' && board[row][column] == 'w'){
+				else if(old_board[row][column] == 'p' && board[row][column] == 'o'){
 					$('#'+row+'_'+column).html('<img src="assets/images/purple_to_orange.gif" alt="orange sqaure"/>');
 				}
 				else {

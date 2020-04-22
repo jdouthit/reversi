@@ -603,17 +603,17 @@ socket.on('play_token', function(payload){
     /* execute the move */
 
     if(color == 'orange'){
-		game.board[row][column] = 'w';
-		flip_board('w',row,column,game.board);
+		game.board[row][column] = 'o';
+		flip_board('o',row,column,game.board);
 		game.whose_turn = 'purple';
-		game.legal_moves = calculate_valid_moves('b', game.board);
+		game.legal_moves = calculate_valid_moves('p', game.board);
     }
  
     else if(color == 'purple'){
-		game.board[row][column] = 'b';
-		flip_board('b',row,column,game.board);
+		game.board[row][column] = 'p';
+		flip_board('p',row,column,game.board);
 		game.whose_turn = 'orange';
-		game.legal_moves = calculate_valid_moves('w', game.board);
+		game.legal_moves = calculate_valid_moves('o', game.board);
     }
 
     var d = new Date();
@@ -652,13 +652,13 @@ function create_new_game(){
                         [' ',' ',' ',' ',' ',' ',' ',' '],
                         [' ',' ',' ',' ',' ',' ',' ',' '],
                         [' ',' ',' ',' ',' ',' ',' ',' '],
-                        [' ',' ',' ','w','b',' ',' ',' '],
-                        [' ',' ',' ','b','w',' ',' ',' '],
+                        [' ',' ',' ','o','p',' ',' ',' '],
+                        [' ',' ',' ','p','o',' ',' ',' '],
                         [' ',' ',' ',' ',' ',' ',' ',' '],
                         [' ',' ',' ',' ',' ',' ',' ',' '],
                         [' ',' ',' ',' ',' ',' ',' ',' ']
                      ];
-	new_game.legal_moves = calculate_valid_moves('b', new_game.board);
+	new_game.legal_moves = calculate_valid_moves('p', new_game.board);
     return new_game;
 }
 /*checks if there is a color 'who' on the line starting at r/c or anythere by adding */
@@ -686,11 +686,11 @@ function check_line_match(who,dr,dc,r,c,board){
 /* valid move function check ending in the who color*/
 function valid_move(who, dr, dc, r, c, board){
     var other;
-    if(who === 'b'){
-        other = 'w';
+    if(who === 'p'){
+        other = 'o';
     }
-    else if(who === 'w'){
-        other = 'b';
+    else if(who === 'o'){
+        other = 'p';
     }
     else{
         log('Houston we have a color problem: '+who);
@@ -872,10 +872,10 @@ for(row = 0; row < 8; row++){
 		if(games[game_id].legal_moves[row][column] != ' '){
 			count++;
 		}
-		if(games[game_id].board[row][column] === 'b'){
+		if(games[game_id].board[row][column] === 'p'){
 			purple++;
 		}
-		if(games[game_id].board[row][column] === 'w'){
+		if(games[game_id].board[row][column] === 'o'){
 			orange++;
 		}
 	}
