@@ -1,11 +1,17 @@
 body {
-    background-image: url('assets/images/green.jpg');
+    background-image: url("/assets/images/yellow.jpg");
+    backface-visibility: .3;
 }
+h3{
+  color:rgb(173, 150, 181);
+  text-shadow: 2px 2px black;
+}
+
 table#game_board{
     margin:auto;
     border-style: solid;
     border-width: 10px;
-    border-color: darkslategrey;
+    border-color:  rgb(211, 200, 219);
 }
 
 table#game_board td{
